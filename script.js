@@ -1,14 +1,29 @@
 function startGame() {
-  var playerHand = [1, 2, 3, 4, 5, 6, 7];
-  var opponentHand = [1, 2, 3, 4, 5, 6, 7];
+  playerHand = [1, 2, 3, 4, 5, 6, 7];
+  opponentHand = [1, 2, 3, 4, 5, 6, 7];
+  wins = 0;
+  draws = 0;
+  losses = 0;
 }
 
 function playCard(cardNo) {
-  simulateResults
-  removeCard
+  var opponentCard = simulateResults(100);
+  $("div.moves").html($("div.moves").text() + "(" + cardNo + "v " + opponentCard + ") ");
+  if (cardNo > opponentCard && cardNo + opponentCard != 8) {
+    wins ++;
+    $("div.wins").html("Wins: " + wins);
+  } else if (cardNo == opponentCard) {
+    draws ++;
+    $("div.draws").html("Draws: " + draws);
+  } else {
+    losses ++;
+    $("div.losses").html("Losses: " + losses);
+  }
+  removeCard();
 }
 
-simulateResults(hand, count) {
+simulateResults(count) {
+  var wins = [0, 0, 0, 0, 0, 0, 0];
   for (j = 0; j < count; j++) {
     var simPlayerHand = playerHand;
     var simOpponentHand = opponentHand;
@@ -17,10 +32,10 @@ simulateResults(hand, count) {
       var playerCard = selectRandomCard(simPlayerHand);
       var opponentCard = selectRandomCard(simOpponentHand);
       if (i == 0) {
-
+        
       }
       if (playerCard > opponentCard && playerCard + opponentCard != 8) {
-
+      
       }
     }
   }
