@@ -22,7 +22,7 @@ function playCard(cardNo) {
   removeCard();
 }
 
-simulateResults(count) {
+function simulateResults(count) {
   var wins = [0, 0, 0, 0, 0, 0, 0];
   for (j = 0; j < count; j++) {
     var simPlayerHand = playerHand;
@@ -41,7 +41,7 @@ simulateResults(count) {
   }
 }
 
-selectRandomCard(hand) {
+function selectRandomCard(hand) {
   var randomCard = hand[Math.floor(Math.random()*hand.length)];
 }
 
